@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+    scroll-behavior: smooth;
+  }
+
+  @keyframes fade-in-out {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  .animate-fade-in-out {
+    animation: fade-in-out 3s linear infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      margin-top: 0; /* Ensure no margin at the top */
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.2s; /* Adjust the delay for a staggered effect */
+  }
+  
+  /* Optional: Add to buttons for a hover effect */
+  button:hover {
+    transform: translateY(-3px);
+  }
