@@ -51,3 +51,16 @@ html {
   button:hover {
     transform: translateY(-3px);
   }
+
+  /* Light Mode (Default) */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode */
+.dark {
+  background-color: #1a202c; /* Tailwind's dark-gray color */
+  color: white;
+ 
+}

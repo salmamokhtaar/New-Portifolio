@@ -1,40 +1,58 @@
 "use client";
-import { useState } from 'react';
-import emailjs from 'emailjs-com';
+import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactMe() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_l6f85vh', 'template_bc1ct57', e.target, '_fUn8Di61Prf2a-DW')
-      .then((result) => {
-        console.log(result.text);
-        setFormData({ name: '', email: '', message: '' });
-        alert('Thank you for getting in touch with me!');
-      }, (error) => {
-        console.log(error.text);
-        alert('Failed to send message. Please try again later.');
-      });
+    emailjs
+      .sendForm(
+        "service_l6f85vh",
+        "template_bc1ct57",
+        e.target,
+        "_fUn8Di61Prf2a-DW"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setFormData({ name: "", email: "", message: "" });
+          alert("Thank you for getting in touch with me!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send message. Please try again later.");
+        }
+      );
   };
 
   return (
-    <section id="contact" className="container mx-auto p-6 mt-20 bg-white rounded-lg shadow-lg">
-      <h1 className="text-3xl font-bold text-blue-600 mb-4 text-center">Let's Connect</h1>
-      <h2 className="text-xl text-gray-700 mb-6 text-center">Get in touch</h2>
-      <p className="text-center text-gray-600 mb-4">
-        I'm currently available to take on new projects, so feel free to send me a message about anything that you want to run past me. You can contact me anytime, 24/7.
+    <section
+      id="contact"
+      className="container mx-auto p-6 mt-20 bg-white rounded-lg shadow-lg dark:bg-gray-900 dark:shadow-gray-800"
+    >
+      <h1 className="text-3xl font-bold text-blue-600 mb-4 text-center dark:text-blue-400">
+        Let's Connect
+      </h1>
+      <h2 className="text-xl text-gray-700 mb-6 text-center dark:text-gray-300">
+        Get in touch
+      </h2>
+      <p className="text-center text-gray-600 mb-4 dark:text-gray-400">
+        I'm currently available to take on new projects, so feel free to send me
+        a message about anything that you want to run past me. You can contact
+        me anytime, 24/7.
       </p>
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
         <div className="flex flex-col md:flex-row md:justify-center w-full mb-4">
@@ -45,7 +63,7 @@ export default function ContactMe() {
               placeholder="Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+              className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-500"
               required
             />
           </div>
@@ -56,7 +74,7 @@ export default function ContactMe() {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+              className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-500"
               required
             />
           </div>
@@ -67,16 +85,25 @@ export default function ContactMe() {
             placeholder="Write something..."
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+            className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-500"
             rows="4"
             required
           ></textarea>
         </div>
         <div className="text-center mb-6">
-          <p className="text-gray-600 mb-1">+252 617157083</p>
-          <p className="text-gray-600 mb-1">salmam.mohyadiin@gmail.com</p>
-          <p className="text-gray-600 mb-4">Mogadishu, Somalia</p>
-          <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+          <p className="text-gray-600 mb-1 dark:text-gray-400">
+            +252 617157083
+          </p>
+          <p className="text-gray-600 mb-1 dark:text-gray-400">
+            salmam.mohyadiin@gmail.com
+          </p>
+          <p className="text-gray-600 mb-4 dark:text-gray-400">
+            Mogadishu, Somalia
+          </p>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition duration-300 dark:bg-blue-500 dark:hover:bg-blue-600"
+          >
             Submit Now
           </button>
         </div>
