@@ -51,7 +51,7 @@ export default function HomeSection() {
       {/* Buttons Section */}
       <div className="mt-6 flex space-x-4">
         <a
-          href="/SalmoCv.pdf"
+          href="/Salma_FullStack Developer.pdf"
           download
           className="px-6 py-2 text-white bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition duration-200 flex items-center transform hover:scale-105 animate-fadeIn dark:bg-blue-500 dark:hover:bg-blue-600 dark:shadow-gray-800"
         >
