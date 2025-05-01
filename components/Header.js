@@ -41,13 +41,13 @@ export default function Header() {
           Salma Dhegacade
         </button>
         <div className="flex items-center">
-          <button
+          {/* <button
             onClick={toggleDarkMode}
             className="text-gray-800 focus:outline-none mr-4 dark:text-gray-200"
             aria-label="Toggle Dark Mode"
           >
             {isDarkMode ? '🌙' : '☀️'}
-          </button>
+          </button> */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
