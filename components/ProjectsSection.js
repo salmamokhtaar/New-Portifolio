@@ -17,6 +17,15 @@ export default function ProjectsSection() {
       category: "Backend",
     },
     {
+      title: "She&Shine",
+      description:
+        "She & Shine is a modern, responsive e-commerce web application built with the MERN stack (MongoDB, Express, React, Node.js). It allows users to browse, search, and purchase women’s and kids’ fashion products with ease. The platform supports wishlist, shopping cart, secure checkout, and admin-controlled product management.",
+      image: "/image.png",
+      repoLink: "https://github.com/salmamokhtaar/frontend",
+      liveLink: "https://github.com/salmamokhtaar/frontend",
+      category: "Backend",
+    },
+    {
       title: "Sara Flowers",
       description:
         "This project was developed using HTML, CSS, and JavaScript as part of my first-phase defense at Irise Academy. It demonstrates core frontend development skills, featuring a responsive and interactive design to showcase my proficiency in building user-friendly interfaces.",
