@@ -5,25 +5,40 @@ import { useState } from "react";
 
 export default function ProjectsSection() {
   const [filter, setFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
   const projects = [
+   
     {
       title: "BRS",
       description:
-        "About BRS is a modern web application designed to simplify business registration using technologies like React.js, Tailwind CSS, Node.js, Express.js, and MongoDB. Developed as part of the SomNOG 7 initiative, BRS was recognized among the top 3 projects for its innovation and impact.",
+        "Modern web app for business registration. Top 3 at SomNOG 7 for innovation and impact.",
       image: "/brs.png",
       repoLink: "https://github.com/salmamokhtaar/BRS",
       liveLink: "https://brs-liart.vercel.app/",
       category: "Backend",
+      tech: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
     },
     {
       title: "She&Shine",
       description:
-        "She & Shine is a modern, responsive e-commerce web application built with the MERN stack (MongoDB, Express, React, Node.js). It allows users to browse, search, and purchase women’s and kids’ fashion products with ease. The platform supports wishlist, shopping cart, secure checkout, and admin-controlled product management.",
+        "E-commerce platform for women's and kids' fashion. Built with the MERN stack, supports wishlist, cart, and admin features.",
       image: "/image.png",
       repoLink: "https://github.com/salmamokhtaar/frontend",
       liveLink: "https://github.com/salmamokhtaar/frontend",
       category: "Backend",
+      tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
+    },
+    {
+      title: "Caawiye Caafimaad",
+      description:
+        "Mobile app in Somali for women's health info. Top 5 at GirlsInICT 2025 out of 144 competitors.",
+      image: "/caawiye.jpeg",
+      repoLink: "https://github.com/salmamokhtaar/Exactly",
+      liveLink: "https://github.com/salmamokhtaar/Exactly",
+      category: "All",
+      tech: ["Flutter", "Dart"],
+      featured: true,
     },
     {
       title: "Sara Flowers",
@@ -85,10 +100,10 @@ export default function ProjectsSection() {
 
   const filteredProjects =
     filter === "All"
-      ? projects.slice(0, 3) // Show only the first 4 projects
+      ? projects.slice(0, showAll ? projects.length : 3)
       : projects
           .filter((project) => project.category === filter)
-          .slice(0, 4); // Show only the first 4 filtered projects
+          .slice(0, showAll ? projects.length : 4);
 
   return (
     <section
@@ -146,10 +161,20 @@ export default function ProjectsSection() {
                 objectFit="cover"
                 className="rounded-t-lg"
               />
+              {project.featured && (
+                <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded shadow">Featured</span>
+              )}
             </div>
-            <h2 className="text-xl font-semibold text-gray-700 mb-2 dark:text-gray-100">
+            <h2 className="text-xl font-semibold text-gray-700 mb-2 dark:text-gray-100 flex items-center gap-2">
               {project.title}
             </h2>
+            <div className="flex flex-wrap gap-2 mb-2">
+              {project.tech && project.tech.map((tech, i) => (
+                <span key={i} className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-xs font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
             <p className="text-gray-600 mb-4 dark:text-gray-300">
               {project.description}
             </p>
@@ -159,6 +184,7 @@ export default function ProjectsSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 transition duration-200 dark:text-blue-400 dark:hover:text-blue-600"
+                aria-label={`View source code for ${project.title}`}
               >
                 <FaCode size={24} />
               </a>
@@ -167,12 +193,22 @@ export default function ProjectsSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 transition duration-200 dark:text-blue-400 dark:hover:text-blue-600"
+                aria-label={`View live demo of ${project.title}`}
               >
                 <FaEye size={24} />
               </a>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="text-center mt-6">
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200 dark:bg-blue-500 dark:hover:bg-blue-600"
+        >
+          {showAll ? "Show Less" : "Show More"}
+        </button>
       </div>
     </section>
   );

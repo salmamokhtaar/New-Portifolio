@@ -75,6 +75,10 @@ const Footer = () => {
             Salma
           </a>
         </p>
+        <div className="mt-4">
+          <a href="https://www.linkedin.com/in/salma-mukhtar" target="_blank" rel="noopener noreferrer" className="mx-2 hover:text-blue-400">LinkedIn</a>
+          <a href="https://github.com/salmamokhtaar" target="_blank" rel="noopener noreferrer" className="mx-2 hover:text-blue-400">GitHub</a>
+        </div>
       </div>
     </footer>
   );

@@ -15,29 +15,21 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="container ml-4 mt-20 mx-auto p-4 flex flex-col lg:flex-row items-center justify-between gap-10 dark:bg-gray-900 dark:text-gray-100"
+      className="container mx-auto p-4 mt-20 flex flex-col lg:flex-row items-center justify-center gap-10 dark:bg-gray-900 dark:text-gray-100"
     >
       {/* Text Section (Left) */}
-      <div className="lg:w-1/2">
-        <h1 className="text-4xl font-extrabold text-gray-800 mb-4 transition-transform transform hover:scale-105 animate-fadeIn dark:text-gray-100">
+      <div className="lg:w-1/2 text-center flex flex-col justify-center">
+        <h1 className="text-4xl font-extrabold text-gray-800 mb-2 transition-transform transform hover:scale-105 animate-fadeIn dark:text-gray-100">
           Hey, I'm Salma
         </h1>
-        <h2 className="text-3xl font-semibold text-blue-600 mb-4 animate-pulse dark:text-blue-400">
+        <h2 className="text-3xl font-semibold text-blue-500 mb-4 animate-pulse dark:text-blue-400">
           Full-Stack Developer
         </h2>
-        <div className="mb-6">
-          {textLines.map((line, index) => (
-            <p
-              key={index}
-              className="text-lg mb-2 text-gray-700 animate-fadeIn dark:text-gray-300"
-            >
-              {line}
-            </p>
-          ))}
-        </div>
-
+        <p className="text-lg mb-4 text-gray-700 animate-fadeIn dark:text-gray-300 max-w-2xl mx-auto">
+          Crafting innovative web solutions with a passion for clean code and user-centric design. I am a passionate and dedicated Full-Stack Developer with a recent degree in Computer Science from Jamhuriya. My academic journey has equipped me with a robust understanding of both front-end and back-end technologies, allowing me to craft seamless and efficient web applications.
+        </p>
         {/* Buttons */}
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 justify-center mt-6">
           <a
             href="/Salma_FullStack Developer.pdf"
             download
@@ -57,14 +49,14 @@ export default function HomeSection() {
       </div>
 
       {/* Image Section (Right) */}
-      <div className="lg:w-1/2 flex justify-center">
-        <div className="relative w-80 h-80 rounded-full overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 dark:shadow-gray-800">
+      <div className="lg:w-1/2 flex justify-center items-center">
+        <div className="relative rounded-full  w-96 h-96 overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 dark:shadow-gray-800">
           <Image
             src="/salma.png"
             alt="Profile Image"
             layout="fill"
             objectFit="cover"
-            className="rounded-full"
+            className=""
           />
         </div>
       </div>
